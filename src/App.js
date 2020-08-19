@@ -32,9 +32,9 @@ function App() {
     const response = await api.delete(`repositories/${id}`, {});
 
     if(response.status === 204){
-      await api.get('repositories').then(response => {
-        setRepositories(response.data);
-      })
+      
+      setRepositories(repositories.filter(item => item.id !== id));
+    
     }
   }
 
